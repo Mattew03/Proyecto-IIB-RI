@@ -1,4 +1,3 @@
-Dependencias a tomar en cuenta 
 Flask
 tensorflow
 numpy
