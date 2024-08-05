@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Classification</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Sistema de Recuperación de Imágenes</title>
+    <link rel="stylesheet" href="/statics/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Image Classification</h1>
-        <div class="upload-box">
-            <input type="file" id="imageUpload" accept="image/*">
-            <button onclick="uploadImage()">Upload</button>
-        </div>
-        <div id="result"></div>
-    </div>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1>Sube una Imagen</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Subir</button>
+    </form>
+    <div id="result"></div>
+    <script src="/statics/script.js"></script>
 </body>
 </html>
