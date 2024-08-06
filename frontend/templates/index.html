@@ -2,19 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
-    <link rel="stylesheet" href="statics/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Upload an Image</h1>
-        <form id="uploadForm">
-            <input type="file" id="fileInput" name="file">
-            <button type="submit">Upload</button>
-        </form>
-        <div id="result"></div>
-    </div>
-    <script src="statics/script.js"></script>
+    <h1>Upload an Image</h1>
+    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

@@ -1,14 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from model import predict_image
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend/statics', template_folder='../frontend/templates')
 UPLOAD_FOLDER = 'backend/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
-    return 'API is running'
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
