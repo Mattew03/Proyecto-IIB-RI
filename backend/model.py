@@ -3,6 +3,8 @@ from sklearn.neighbors import NearestNeighbors
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
+import os
+
 
 # Ruta al archivo .h5 del modelo en la carpeta backend
 model = load_model('backend/modelo.h5')
