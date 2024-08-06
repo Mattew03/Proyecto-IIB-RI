@@ -2,7 +2,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
-model = load_model('../modelo/modelo_entrenado.h5')
+# Ruta al archivo .h5 del modelo en la carpeta backend
+model = load_model('backend/modelo.h5')
 
 def predict_image(image_path):
     img = image.load_img(image_path, target_size=(224, 224))  # Ajusta el tamaño según tu modelo
