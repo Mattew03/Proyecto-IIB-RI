@@ -1,5 +1,5 @@
 document.getElementById('uploadForm').onsubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
     let formData = new FormData();
     formData.append('file', document.getElementById('fileInput').files[0]);
 
@@ -14,7 +14,7 @@ document.getElementById('uploadForm').onsubmit = async (e) => {
 
     result.image_files.forEach((file, index) => {
         const img = document.createElement('img');
-        img.src = `/caltech-101/${file}`;
+        img.src = `/caltech-101/${file.split('\\').pop()}`;
         img.alt = `Similar image ${index + 1}`;
         img.style.width = '200px';
         img.style.margin = '10px';
