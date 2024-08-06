@@ -8,16 +8,13 @@ document.getElementById('uploadForm').onsubmit = async (e) => {
         body: formData
     });
 
-    //const result = await response.json();
-    //document.getElementById('result').innerText = JSON.stringify(result);
-
     const result = await response.json();
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';
 
     result.image_files.forEach((file, index) => {
         const img = document.createElement('img');
-        img.src = file;
+        img.src = `/caltech-101/${file.split('\\').pop()}`;
         img.alt = `Similar image ${index + 1}`;
         img.style.width = '200px';
         img.style.margin = '10px';

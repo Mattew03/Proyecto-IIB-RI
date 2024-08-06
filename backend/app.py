@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from model import predict_image
 import os
 
@@ -25,6 +25,15 @@ def upload_file():
         file.save(filepath)
         result = predict_image(filepath)
         return jsonify(result)
+    
+@app.route('/uploads/<filename>')
+def send_uploaded_file(filename=''):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.route('/caltech-101/<filename>')
+def send_caltech_file(filename=''):
+    base_dir = 'D:\\U\\7. Septimo\\RI\\ir24a\\week14\\caltech-101'
+    return send_from_directory(base_dir, filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
