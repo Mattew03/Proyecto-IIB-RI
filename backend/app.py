@@ -4,7 +4,9 @@ import os
 
 app = Flask(__name__, static_folder='../frontend/statics', template_folder='../frontend/templates')
 UPLOAD_FOLDER = 'backend/uploads'
+CALTECH_FOLDER = 'D:\\U\\7. Septimo\\RI\\ir24a\\week14\\caltech-101'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['CALTECH_FOLDER'] = CALTECH_FOLDER
 
 @app.route('/')
 def index():
@@ -32,8 +34,7 @@ def send_uploaded_file(filename=''):
 
 @app.route('/caltech-101/<filename>')
 def send_caltech_file(filename=''):
-    base_dir = 'D:\\U\\7. Septimo\\RI\\ir24a\\week14\\caltech-101'
-    return send_from_directory(base_dir, filename)
+    return send_from_directory(app.config['CALTECH_FOLDER'], filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

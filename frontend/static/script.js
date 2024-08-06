@@ -14,7 +14,7 @@ document.getElementById('uploadForm').onsubmit = async (e) => {
 
     result.image_files.forEach((file, index) => {
         const img = document.createElement('img');
-        img.src = `/caltech-101/${file.split('\\').pop()}`;
+        img.src = `/caltech-101/${file}`;
         img.alt = `Similar image ${index + 1}`;
         img.style.width = '200px';
         img.style.margin = '10px';
