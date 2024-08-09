@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, jsonify
 from model import predict_image
 import os
 
@@ -13,27 +13,29 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+        return render_template('index.html', error='No file part')
 
     file = request.files['file']
 
     if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+        return render_template('index.html', error='No selected file')
 
     if file:
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filepath)
         result = predict_image(filepath)
-        return jsonify(result)
+        return render_template('results.html', result=result)
 
 @app.route('/uploads/<filename>')
 def send_uploaded_file(filename=''):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.route('/caltech-101/<filename>')
+@app.route('/caltech-101/<path:filename>')
 def send_caltech_file(filename=''):
     base_dir = 'D:\\U\\7. Septimo\\RI\\ir24a\\week14\\caltech-101'
     return send_from_directory(base_dir, filename)
 
 if __name__ == '__main__':
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
     app.run(debug=True)

@@ -39,7 +39,6 @@ function displayResult(result) {
         result.similar_images.forEach(image => {
             let imgElement = document.createElement('img');
             imgElement.src = `/caltech-101/${image}`;
-            imgElement.className = 'img-fluid img-thumbnail';
             resultDiv.appendChild(imgElement);
         });
     }
