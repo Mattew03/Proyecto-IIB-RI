@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory, jsonify
+from flask import Flask, request, render_template, send_from_directory
 from model import predict_image
 import os
 
@@ -24,6 +24,7 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filepath)
         result = predict_image(filepath)
+        result['uploaded_image'] = file.filename  # Agrega el nombre de la imagen subida a los resultados
         return render_template('results.html', result=result)
 
 @app.route('/uploads/<filename>')

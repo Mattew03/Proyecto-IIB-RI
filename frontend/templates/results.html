@@ -10,9 +10,13 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">Search Results</h1>
-        <div class="text-center mb-4">
-            <a href="/" class="btn btn-secondary">Go back</a>
+        
+        
+        <div class="text-center">
+            <img src="/uploads/{{ result.uploaded_image }}" alt="Uploaded Image" class="img-fluid img-thumbnail">
         </div>
+
+        <h2 class="text-center my-4">Similar Images</h2>
         <div id="result" class="row">
             {% if result.error %}
                 <div class="col-12">
@@ -27,6 +31,9 @@
                     </div>
                 {% endfor %}
             {% endif %}
+        </div>
+        <div class="text-center mb-4">
+            <a href="/" class="btn btn-secondary">Go back</a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
