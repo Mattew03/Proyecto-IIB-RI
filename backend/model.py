@@ -16,7 +16,6 @@ with open(knn_index_path, 'rb') as f:
 knn_index = index_data['knn']
 with open(r'D:\\U\\7. Septimo\\RI\\Proyecto-IIB-RI\\backend\\train_labels_cate.pkl', 'rb') as f:
         train_image_paths = pickle.load(f)
-#train_image_paths = index_data['D:\\U\\7. Septimo\\RI\\Proyecto-IIB-RI\\backend\\train_labels_cate.pkl']
 
 def extract_features(image_path):
     img = image.load_img(image_path, target_size=(224, 224))
