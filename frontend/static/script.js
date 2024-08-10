@@ -32,14 +32,15 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
 function displayResult(result) {
     let resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';
-
     if (result.error) {
         resultDiv.textContent = result.error;
-    } else {
+    } else {       
         result.similar_images.forEach(image => {
             let imgElement = document.createElement('img');
             imgElement.src = `/caltech-101/${image}`;
+            imgElement.className = 'img-fluid img-thumbnail';
             resultDiv.appendChild(imgElement);
         });
     }
 }
+
