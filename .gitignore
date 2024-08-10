@@ -1,14 +1,13 @@
 # Ignorar archivos de modelos y pesos
 /backend/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
 /backend/train_labels_cate.pkl
-/backend/modelo0.h5
+/backend/modelo2.h5
 /backend/modelo1.h5
 
 # Ignorar archivos de modelos y pesos en la carpeta modelo
 /modelo/knn_index0.pkl
 /modelo/knn_index1.pkl
 /modelo/knn_index2.pkl
-/modelo/modelo2.h5
 
 
 # Ignorar archivos de índices en la raíz del proyecto
