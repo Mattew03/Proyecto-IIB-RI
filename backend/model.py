@@ -18,7 +18,7 @@ with open(r'D:\\U\\7. Septimo\\RI\\Proyecto-IIB-RI\\backend\\train_labels_cate.p
         train_image_paths = pickle.load(f)
 
 def extract_features(image_path):
-    img = image.load_img(image_path, target_size=(224, 224))
+    img = image.load_img(image_path, target_size=(256, 256))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.0  # Normalización, ajusta según tu modelo
