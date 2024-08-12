@@ -24,11 +24,11 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filepath)
         result = predict_image(filepath)
-        result['uploaded_image'] = file.filename  # Agrega el nombre de la imagen subida a los resultados
+        result['uploaded_image'] = file.filename  
         return render_template('results.html', result=result)
 
 @app.route('/uploads/<filename>')
-def send_uploaded_file(filename=''):
+def send_uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/caltech-101/<path:filename>')
