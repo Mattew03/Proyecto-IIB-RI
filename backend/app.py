@@ -29,7 +29,8 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def send_uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    base_dir2 = 'D:\\U\\7. Septimo\\RI\\Proyecto-IIB-RI\\backend\\uploads'
+    return send_from_directory(base_dir2, filename)
 
 @app.route('/caltech-101/<path:filename>')
 def send_caltech_file(filename=''):
